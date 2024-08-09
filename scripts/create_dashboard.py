@@ -26,7 +26,7 @@ def update_weather(city_var, plot_frame):
     #api_key = 'de3ce3c7abaef97cbd6c2bde4e20cc2b'  # Replace with your OpenWeatherMap API key
     #current_data, forecast_data = fetch_weather_data(api_key, city)
     api_key = os.getenv("de3ce3c7abaef97cbd6c2bde4e20cc2b")
-    current_df, hourly_df, daily_df = process_weather_data(current_data, forecast_data)
+    current_df, hourly_df, daily_df = process_weather_data(current_df, forecast_data)
     daily_df['Weather'] = daily_df.apply(determine_weather, axis=1, args=(25, 15, 80))
 
     for widget in plot_frame.winfo_children():
@@ -45,7 +45,7 @@ def update_weather(city_var, plot_frame):
     canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
 
-def create_dashboard(root):
+def create_dashboard(root, weather_api):
     """
     Create the weather dashboard GUI.
 
