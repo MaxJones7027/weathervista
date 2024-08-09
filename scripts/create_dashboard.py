@@ -6,6 +6,12 @@ from visualise_data import create_forecast_card, plot_scatter, plot_min_max
 from fetch_data import fetch_weather_data
 from process_data import process_weather_data
 from utils import determine_weather
+from weather_api_class import WeatherAPI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 
 def update_weather(city_var, plot_frame):
@@ -17,8 +23,9 @@ def update_weather(city_var, plot_frame):
         plot_frame (ttk.Frame): A Tkinter frame where the plots will be displayed.
     """
     city = city_var.get()
-    api_key = 'de3ce3c7abaef97cbd6c2bde4e20cc2b'  # Replace with your OpenWeatherMap API key
-    current_data, forecast_data = fetch_weather_data(api_key, city)
+    #api_key = 'de3ce3c7abaef97cbd6c2bde4e20cc2b'  # Replace with your OpenWeatherMap API key
+    #current_data, forecast_data = fetch_weather_data(api_key, city)
+    api_key = os.getenv("de3ce3c7abaef97cbd6c2bde4e20cc2b")
     current_df, hourly_df, daily_df = process_weather_data(current_data, forecast_data)
     daily_df['Weather'] = daily_df.apply(determine_weather, axis=1, args=(25, 15, 80))
 
