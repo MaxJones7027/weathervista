@@ -26,7 +26,7 @@ def update_weather(city_var, plot_frame):
     #api_key = 'de3ce3c7abaef97cbd6c2bde4e20cc2b'  # Replace with your OpenWeatherMap API key
     #current_data, forecast_data = fetch_weather_data(api_key, city)
     # Fetch the weather data for the selected city
-    api_key = os.getenv("de3ce3c7abaef97cbd6c2bde4e20cc2b")
+    api_key = os.getenv("f217e635c0a1f3a54dae14ffbc07da98")
     current_data, forecast_data = fetch_weather_data(api_key, city)
 
     # Process the weather data

@@ -4,7 +4,7 @@ from create_dashboard import create_dashboard
 from weather_api_class import WeatherAPI  # Import the new WeatherAPI class
 
 # Initialize the WeatherAPI with your API key
-api_key = "de3ce3c7abaef97cbd6c2bde4e20cc2b"
+api_key = "f217e635c0a1f3a54dae14ffbc07da98"
 weather_api = WeatherAPI(api_key)
 
 # Create the main Tkinter window

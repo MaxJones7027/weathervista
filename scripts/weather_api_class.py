@@ -60,7 +60,7 @@ class WeatherAPI:
             return None, None
 
 # Example usage:
-api = WeatherAPI("de3ce3c7abaef97cbd6c2bde4e20cc2b")
+api = WeatherAPI("f217e635c0a1f3a54dae14ffbc07da98")
 try:
     current_data, forecast_data = api.fetch_weather_data("New York")
     if current_data and forecast_data:
