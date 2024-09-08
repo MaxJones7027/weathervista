@@ -25,10 +25,12 @@ def update_weather(city_var, plot_frame):
     city = city_var.get()
     #api_key = 'de3ce3c7abaef97cbd6c2bde4e20cc2b'  # Replace with your OpenWeatherMap API key
     #current_data, forecast_data = fetch_weather_data(api_key, city)
+    # Fetch the weather data for the selected city
     api_key = os.getenv("de3ce3c7abaef97cbd6c2bde4e20cc2b")
-    current_df, hourly_df, daily_df = process_weather_data(current_df, forecast_data)
-    daily_df['Weather'] = daily_df.apply(determine_weather, axis=1, args=(25, 15, 80))
+    current_data, forecast_data = fetch_weather_data(api_key, city)
 
+    # Process the weather data
+    current_df, hourly_df, daily_df = process_weather_data(current_data, forecast_data)
     for widget in plot_frame.winfo_children():
         widget.destroy()
 
